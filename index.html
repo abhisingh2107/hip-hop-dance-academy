@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hip Hop Dance Group Begusarai | Official Website</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Lightbox for photo gallery -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0A0A0F;
+      font-family: 'Inter', sans-serif;
+      color: #F0F0F0;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section, .hero, .footer {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ========= TOP ACTION BUTTONS (WhatsApp + Email) ========= */
+    .top-action-bar {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      display: flex;
+      gap: 14px;
+      z-index: 1000;
+    }
+
+    .top-btn {
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+      background: rgba(10, 10, 15, 0.8);
+      border: 1px solid rgba(255, 217, 102, 0.4);
+      color: #FFD966;
+    }
+
+    .top-btn.whatsapp-top {
+      background: rgba(37, 211, 102, 0.15);
+      border-color: #25D366;
+      color: #25D366;
+    }
+
+    .top-btn.email-top {
+      background: rgba(255, 217, 102, 0.15);
+      border-color: #FFD966;
+      color: #FFD966;
+    }
+
+    .top-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 217, 102, 0.25);
+    }
+
+    .top-btn.whatsapp-top:hover {
+      background: rgba(37, 211, 102, 0.3);
+    }
+
+    /* ========= BOTTOM FLOATING BUTTONS ========= */
+    .floating-buttons {
+      position: fixed;
+      right: 24px;
+      bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 1000;
+    }
+
+    .floating-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .floating-btn.whatsapp {
+      background: #25D366;
+    }
+
+    .floating-btn.whatsapp:hover {
+      transform: scale(1.08);
+      background: #20b859;
+    }
+
+    .floating-btn.email {
+      background: #FFD966;
+    }
+
+    .floating-btn.email:hover {
+      transform: scale(1.08);
+      background: #ffe08c;
+    }
+
+    .floating-btn i {
+      font-size: 28px;
+      color: #0A0A0F;
+    }
+
+    .floating-btn.whatsapp i {
+      color: white;
+    }
+
+    /* Hero Section with Background Video */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.4) contrast(1.1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFD966 80%, #FFA500 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      text-shadow: 0 0 30px rgba(255,217,102,0.3);
+    }
+
+    .establish-badge {
+      display: inline-block;
+      background: rgba(255, 217, 102, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #FFD966;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 217, 102, 0.5);
+    }
+
+    .hero-text .tagline {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #E0E0FF;
+      border-left: 4px solid #FFD966;
+      padding-left: 20px;
+      margin: 1rem 0 1.8rem;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 32px;
+      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,217,102,0.2);
+      transition: transform 0.3s;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: #FFD966;
+      border-radius: 4px;
+    }
+
+    .about-card {
+      background: rgba(18, 18, 28, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      padding: 40px 48px;
+      border: 1px solid rgba(255, 217, 102, 0.25);
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .classes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .class-card {
+      background: #111116;
+      border-radius: 28px;
+      padding: 32px 28px;
+      text-align: center;
+      width: 220px;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 217, 102, 0.2);
+    }
+
+    .class-card:hover {
+      transform: translateY(-8px);
+      border-color: #FFD966;
+      box-shadow: 0 15px 30px rgba(255,217,102,0.1);
+    }
+
+    .class-icon {
+      font-size: 3rem;
+      color: #FFD966;
+      margin-bottom: 20px;
+    }
+
+    .achievements-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+
+    .achievement-card {
+      background: linear-gradient(135deg, #111116 0%, #0C0C12 100%);
+      border-radius: 28px;
+      padding: 28px 24px;
+      width: 260px;
+      text-align: center;
+      border: 1px solid rgba(255, 217, 102, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      border-color: #FFD966;
+    }
+
+    /* Video Gallery Section */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .video-card {
+      background: #111116;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 217, 102, 0.25);
+      transition: all 0.3s;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      border-color: #FFD966;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      padding: 18px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #FFD966;
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Photo Gallery */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 217, 102, 0.4);
+      color: #F0F0F0;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #FFD966;
+      color: #0A0A0F;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      background: #111116;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 217, 102, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: #FFD966;
+    }
+
+    .gallery-img-link {
+      display: block;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .gallery-img-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover .gallery-img-link img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      padding: 14px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #CCCCDD;
+    }
+
+    /* Enquiry Form */
+    .enquiry-wrapper {
+      background: linear-gradient(145deg, #0E0E16, #08080C);
+      border-radius: 40px;
+      padding: 48px 40px;
+      border: 1px solid rgba(255, 217, 102, 0.3);
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #FFD966;
+      font-size: 0.9rem;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: #111116;
+      border: 1px solid rgba(255, 217, 102, 0.3);
+      border-radius: 24px;
+      color: #F0F0F0;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #FFD966;
+      box-shadow: 0 0 0 3px rgba(255, 217, 102, 0.2);
+    }
+
+    .submit-btn {
+      background: #FFD966;
+      color: #0A0A0F;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #FFE085;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,217,102,0.3);
+    }
+
+    .form-status {
+      margin-top: 24px;
+      padding: 12px 20px;
+      border-radius: 40px;
+      text-align: center;
+      font-weight: 500;
+      display: none;
+    }
+
+    .form-status.success {
+      background: rgba(76, 175, 80, 0.2);
+      border: 1px solid #4CAF50;
+      color: #4CAF50;
+      display: block;
+    }
+
+    .form-status.error {
+      background: rgba(244, 67, 54, 0.2);
+      border: 1px solid #f44336;
+      color: #f44336;
+      display: block;
+    }
+
+    /* Contact */
+    .contact-wrapper {
+      background: linear-gradient(145deg, #0E0E16, #08080C);
+      border-radius: 40px;
+      padding: 48px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(255, 217, 102, 0.2);
+    }
+
+    .contact-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 18px 22px;
+      border-radius: 60px;
+      transition: all 0.3s;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 217, 102, 0.1);
+      border-color: #FFD966;
+    }
+
+    .contact-item i {
+      font-size: 1.8rem;
+      color: #FFD966;
+    }
+
+    .footer {
+      background: #030308;
+      padding: 32px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 217, 102, 0.15);
+    }
+
+    @media (max-width: 900px) {
+      .hero .container { flex-direction: column; text-align: center; }
+      .hero-text h1 { font-size: 2.8rem; }
+      .hero-text .tagline { border-left: none; border-top: 2px solid #FFD966; padding-top: 12px; display: inline-block; }
+      .top-action-bar { top: 12px; right: 12px; gap: 8px; }
+      .top-btn { padding: 6px 14px; font-size: 0.75rem; }
+      .floating-buttons { right: 16px; bottom: 20px; }
+      .floating-btn { width: 48px; height: 48px; }
+      .videos-grid { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BUTTONS -->
+  <div class="top-action-bar">
+    <a href="https://wa.me/919608583377?text=Hello%21%20I%20want%20to%20join%20Hip%20Hop%20Dance%20Group%20Begusarai" target="_blank" class="top-btn whatsapp-top"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:amansharma75496@gmail.com?subject=Enquiry%20from%20Website&body=Hello%2C%20I%20want%20to%20know%20more%20about%20dance%20classes." class="top-btn email-top"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+
+  <!-- BOTTOM FLOATING BUTTONS -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/919608583377?text=Hello%21%20I%20want%20to%20join%20Hip%20Hop%20Dance%20Group%20Begusarai" target="_blank" class="floating-btn whatsapp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:amansharma75496@gmail.com?subject=Enquiry%20from%20Website&body=Hello%2C%20I%20want%20to%20join%20dance%20classes." class="floating-btn email" title="Send Email"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <!-- Hero Section with Dance Background Video -->
+  <div class="hero">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="video 1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-text">
+        <div class="establish-badge"><i class="fas fa-calendar-alt"></i> Since 2011</div>
+        <h1>Hip Hop Dance Group</h1>
+        <div class="tagline">Feel the Beat. Rule the Dance Floor.</div>
+        <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+          <span style="background: rgba(255,217,102,0.2); padding: 8px 18px; border-radius: 40px;"><i class="fas fa-rupee-sign"></i> Only ₹500/-</span>
+          <span style="background: rgba(255,217,102,0.2); padding: 8px 18px; border-radius: 40px;"><i class="fas fa-female"></i> Ladies Batch</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=800&auto=format" alt="Hip hop dancers">
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="about-card">
+          <p><strong>🔥 Hip Hop Dance Group Begusarai</strong> — Established 2011. Professional training in Hip Hop, Bollywood, Contemporary & Freestyle. Led by <strong>Prakash Mallick</strong> (15+ years experience, TV reality shows on Mahua TV, Zee TV & DD National, trained under Ganesh Acharya & Saroj Khan). Special ladies batches and combo batches available.</p>
+          <div style="margin-top: 20px; color: #FFD966;"><i class="fas fa-star-of-life"></i> Trainers: Prakash Mallick & team | 15+ years legacy</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes -->
+    <section id="classes">
+      <div class="container">
+        <h2 class="section-title">Our Dance Styles</h2>
+        <div class="classes-grid">
+          <div class="class-card"><div class="class-icon"><i class="fas fa-music"></i></div><h3>Hip-Hop</h3><p>Street style & attitude</p></div>
+          <div class="class-card"><div class="class-icon"><i class="fas fa-hand-peace"></i></div><h3>Bollywood</h3><p>Expressive & high-energy</p></div>
+          <div class="class-card"><div class="class-icon"><i class="fas fa-feather-alt"></i></div><h3>Contemporary</h3><p>Fluid & emotional</p></div>
+          <div class="class-card"><div class="class-icon"><i class="fas fa-shoe-prints"></i></div><h3>Freestyle</h3><p>Unleash creativity</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title">Our Achievements</h2>
+        <div class="achievements-grid">
+          <div class="achievement-card"><div class="achievement-icon"><i class="fas fa-tv"></i></div><h4>3 TV Reality Shows</h4><p>Mahua TV, Zee TV, DD National</p></div>
+          <div class="achievement-card"><div class="achievement-icon"><i class="fas fa-chalkboard-user"></i></div><h4>Bollywood Training</h4><p>Trained under Ganesh Acharya & Saroj Khan</p></div>
+          <div class="achievement-card"><div class="achievement-icon"><i class="fas fa-users"></i></div><h4>500+ Students Trained</h4><p>Since 2011</p></div>
+          <div class="achievement-card"><div class="achievement-icon"><i class="fas fa-medal"></i></div><h4>National Recognition</h4><p>Performed across India</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO GALLERY SECTION: 3 YouTube Links (Fixed) -->
+    <section id="videos">
+      <div class="container">
+        <h2 class="section-title">Our Performances</h2>
+        <div class="videos-grid">
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/uKuyyYWt900?rel=0&autoplay=0&modestbranding=1" title="Bezuba Dance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">🎬 Bezuba Dance | Hip Hop Dance Group Begusarai</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/FJWr7jtkl0o?rel=0&autoplay=0&modestbranding=1" title="Welcome Dance Jai Ho" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">💃 Welcome Dance Jai Ho | Dance Team Performance</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/wqd34ExVMAw?rel=0&autoplay=0&modestbranding=1" title="O LARKI AANKH MARE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">🕺 O LARKI AANKH MARE | Prakash Mallick</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">Moments</h2>
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">All Photos</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- Enquiry Form -->
+    <section id="enquiry">
+      <div class="container">
+        <h2 class="section-title">Enquire Now</h2>
+        <div class="enquiry-wrapper">
+          <form id="enquiryForm">
+            <div class="form-row">
+              <div class="form-group"><label><i class="fas fa-user"></i> Full Name *</label><input type="text" id="userName" required placeholder="Enter your full name"></div>
+              <div class="form-group"><label><i class="fas fa-phone"></i> Mobile Number *</label><input type="tel" id="userPhone" required placeholder="+91 XXXXX XXXXX"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label><i class="fas fa-envelope"></i> Your Email *</label><input type="email" id="userEmail" required placeholder="you@example.com"></div>
+              <div class="form-group"><label><i class="fas fa-calendar-alt"></i> Preferred Batch</label><select id="userBatch"><option>Morning (6 AM - 9 AM)</option><option>Ladies Batch (12 PM - 1 PM)</option><option>Ladies Batch (4 PM - 5 PM)</option><option>Evening (5 PM - 9 PM)</option></select></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label><i class="fas fa-tag"></i> Interested Style</label><select id="userStyle"><option>Hip-Hop</option><option>Bollywood</option><option>Contemporary</option><option>Freestyle</option></select></div>
+              <div class="form-group"><label><i class="fas fa-chart-line"></i> Experience Level</label><select id="userLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+            </div>
+            <div class="form-group"><label><i class="fas fa-comment"></i> Your Message</label><textarea id="userMessage" rows="3" placeholder="Tell us about your dance goals..."></textarea></div>
+            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Enquiry via Email</button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
+          <p style="margin-top: 24px; font-size: 0.8rem; text-align: center; color: #aaa;"><i class="fas fa-info-circle"></i> Clicking send will open your email app with pre-filled details.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-wrapper">
+          <div class="contact-item"><i class="fas fa-phone-alt"></i><div><h4>Call / WhatsApp</h4><p><a href="tel:+919608583377" style="color:white;">+91 96085 83377</a> | <a href="tel:+919142159148" style="color:white;">+91 91421 59148</a></p></div></div>
+          <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><a href="mailto:amansharma75496@gmail.com" style="color:white;">amansharma75496@gmail.com</a></div></div>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Address</h4><p>Near Mamta Hotel, G.D. College Road, Meerganj, Begusarai, Bihar</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><p>© 2025 Hip Hop Dance Group Begusarai | Near Mamta Hotel, Meerganj — Feel the Beat. Rule the Dance Floor.</p></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    // Enquiry Form
+    const form = document.getElementById('enquiryForm');
+    const statusDiv = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const userName = document.getElementById('userName').value.trim();
+      const userPhone = document.getElementById('userPhone').value.trim();
+      const userEmail = document.getElementById('userEmail').value.trim();
+      const userBatch = document.getElementById('userBatch').value;
+      const userStyle = document.getElementById('userStyle').value;
+      const userLevel = document.getElementById('userLevel').value;
+      const userMessage = document.getElementById('userMessage').value.trim();
+
+      if (!userName || !userPhone || !userEmail) {
+        statusDiv.className = 'form-status error';
+        statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please fill Name, Phone & Email.';
+        statusDiv.style.display = 'block';
+        setTimeout(() => statusDiv.style.display = 'none', 4000);
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(userEmail)) {
+        statusDiv.className = 'form-status error';
+        statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.';
+        statusDiv.style.display = 'block';
+        setTimeout(() => statusDiv.style.display = 'none', 4000);
+        return;
+      }
+
+      const subject = `Enquiry from ${userName} - Hip Hop Dance Group Begusarai`;
+      const body = `=== NEW DANCE ENQUIRY ===%0D%0A%0D%0A📛 Name: ${userName}%0D%0A📞 Phone: ${userPhone}%0D%0A✉️ Email: ${userEmail}%0D%0A🕒 Preferred Batch: ${userBatch}%0D%0A💃 Dance Style: ${userStyle}%0D%0A📊 Experience: ${userLevel}%0D%0A💬 Message: ${userMessage || "No additional message"}%0D%0A%0D%0A---------------------------------%0D%0ASent via Hip Hop Dance Group Website`;
+
+      const mailtoLink = `mailto:amansharma75496@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
+      statusDiv.className = 'form-status success';
+      statusDiv.innerHTML = '<i class="fas fa-envelope-open-text"></i> Opening your email app... Please review and send.';
+      statusDiv.style.display = 'block';
+      
+      window.location.href = mailtoLink;
+      
+      setTimeout(() => {
+        statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Email window opened! Complete sending from your email account.';
+        setTimeout(() => statusDiv.style.display = 'none', 5000);
+      }, 2000);
+    });
+
+    // Photo Gallery
+    const photoItems = [
+      { title: '🔥 Hip Hop Performance', url: 'photo_2026-04-08_22-41-05.jpg', thumbnail: 'photo_2026-04-08_22-41-05.jpg' },
+      { title: '💃 Ladies Batch', url: 'photo_2026-04-08_23-19-26.jpg', thumbnail: 'photo_2026-04-08_23-19-26.jpg' },
+      { title: '🎭 Bollywood Fusion', url: 'photo_2026-04-08_23-19-26.jpg', thumbnail: 'https://images.unsplash.com/photo-1559000356-6d3d5da0e9d5?w=400' },
+      
+    ];
+
+    function renderGallery() {
+      const container = document.getElementById('galleryGrid');
+      container.innerHTML = photoItems.map(item => `
+        <div class="gallery-item">
+          <a href="${item.url}" data-lightbox="dance-gallery" data-title="${item.title}" class="gallery-img-link">
+            <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
+          </a>
+          <div class="gallery-caption">${item.title}</div>
+        </div>
+      `).join('');
+    }
+    renderGallery();
+  </script>
+</body>
+</html>
